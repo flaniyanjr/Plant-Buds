@@ -1,3 +1,5 @@
+import PlantLibrary from "./PlantLibrary";
+
 function Content() {
 
     // plant library items
@@ -10,7 +12,11 @@ function Content() {
             .then((allPlantItems) => setAllPlantItems(allPlantItems))
     }, []);
     
-    return 
+    return (
+        <div>
+            <PlantLibrary allPlantItems={allPlantItems} />
+        </div>
+    )
 }
 
 export default Content;
