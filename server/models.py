@@ -48,10 +48,10 @@ class Plant(db.Model, SerializerMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
-    nickname= db.Column(db.String)
     image= db.Column(db.String)
-    watering= db.Column(db.String)
-    extra_care= db.Column(db.String)
+    nickname= db.Column(db.String)
+    water= db.Column(db.String)
+    extra_info= db.Column(db.String)
     size= db.Column(db.Integer)
     owner_id= db.Column(db.Integer, db.ForeignKey('owners.id'))
     location_id= db.Column(db.Integer, db.ForeignKey('locations.id'))
