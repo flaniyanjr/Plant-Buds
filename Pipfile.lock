@@ -209,10 +209,6 @@
                 "sha256:951bd9a64731c444fd907a5ce268543020086a697f6be08f7cc2c9a752a278c5"
             ],
             "index": "pypi",
-<<<<<<< HEAD
-            "markers": "python_version >= '2.7'",
-=======
->>>>>>> main
             "version": "==0.13.9"
         },
         "ipython": {
