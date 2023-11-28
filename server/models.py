@@ -1,5 +1,6 @@
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.ext.associationproxy import association_proxy
+from sqlalchemy.orm import validates
 
 from config import db
 
@@ -13,35 +14,48 @@ class Owner(db.Model, SerializerMixin):
 
     plants= db.relationship('Plant', back_populates= 'owner', cascade= 'all, delete-orphan')
 
-    plant_types= association_proxy('plants', 'plant_type')
+    locations= association_proxy('plants', 'location')
 
-class PlantType(db.Model, SerializerMixin):
-    __tablename__ = 'plant_types'
+    @validates('name')
+    def validate_owner_name(self, key, name):
+        if type(name) != str:
+            raise ValueError('Name must be a string')
+        return name
 
-    serialize_rules= ('-plants.plant_type',)
+
+class Location(db.Model, SerializerMixin):
+    __tablename__ = 'locations'
+
+    serialize_rules= ('-plants.location',)
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String)
+    room= db.Column(db.String)
 
-    plants= db.relationship('Plant', back_populates= 'plant_type', cascade= 'all, delete-orphan')
+    plants= db.relationship('Plant', back_populates= 'location', cascade= 'all, delete-orphan')
 
     owners= association_proxy('plants', 'owner')
+
+    @validates('room')
+    def validate_room(self, key, room):
+        if type(room) != str:
+            raise ValueError('Room must be a string')
+        return room
 
 class Plant(db.Model, SerializerMixin):
     __tablename__ = 'plants'
 
-    serialize_rules= ('-owner.plants', '-plant_type.plants')
+    serialize_rules= ('-owner.plants', '-location.plants')
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
+    nickname= db.Column(db.String)
     image= db.Column(db.String)
-    light= db.Column(db.String)
-    water= db.Column(db.String)
-    temperature= db.Column(db.Integer)
-    toxicity= db.Column(db.String)
-    owner_id= db.Column(db.Integer, db.ForeignKey('users.id'))
-    plant_type_id= db.Column(db.Integer, db.ForeignKey('plant_types.id'))
+    watering= db.Column(db.String)
+    extra_care= db.Column(db.String)
+    size= db.Column(db.Integer)
+    owner_id= db.Column(db.Integer, db.ForeignKey('owners.id'))
+    location_id= db.Column(db.Integer, db.ForeignKey('locations.id'))
 
     owner= db.relationship('User', back_populates= 'plants')
-    plant_type= db.relationship('PlantType', back_populates= 'plants')
+    location= db.relationship('Location', back_populates= 'plants')
 
