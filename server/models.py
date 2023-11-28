@@ -37,7 +37,7 @@ class Plant(db.Model, SerializerMixin):
     image= db.Column(db.String)
     light= db.Column(db.String)
     water= db.Column(db.String)
-    temperature= db.Column(db.Integer)
+    temperature= db.Column(db.String)
     toxicity= db.Column(db.String)
     owner_id= db.Column(db.Integer, db.ForeignKey('users.id'))
     plant_type_id= db.Column(db.Integer, db.ForeignKey('plant_types.id'))
