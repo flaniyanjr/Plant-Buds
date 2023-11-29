@@ -1,24 +1,23 @@
-import { useOutletContext } from "react-router-dom";
-import PlantLibraryItem from "./PlantLibraryItem";
+import { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom"
+import PlantCard from "./PlantCard";
 
-function PlantLibrary( ){
+function PlantLibrary(){
 
-    const {
-        allPlantItems
-    } = useOutletContext();
+    const {allPlantItems}= useOutletContext()
 
     // render plant library items
-    const renderPlantItems = allPlantItems.map((item) => (
-        <PlantLibraryItem 
-        key={item.id}
-        name={item.name}
-        image={item.image}
-        nickname={item.nickname}
-        water={item.water}
-        extraInfo={item.extra_info}
-        size={item.size}
-        ownerName={item.owner.name}
-        location={item.location.room}
+    const renderPlantItems = allPlantItems.map((plant) => (
+        <PlantCard 
+        key={plant.id}
+        name={plant.name}
+        image={plant.image}
+        nickname={plant.nickname}
+        water={plant.water}
+        extraInfo={plant.extra_info}
+        size={plant.size}
+        ownerName={plant.owner.name}
+        location={plant.location.room}
         />
     ))
 
@@ -27,7 +26,7 @@ function PlantLibrary( ){
     return (
         <div>
             <h2>Plant Library</h2>
-            <div className="plant-library" >
+            <div className='container' >
                 {renderPlantItems}
             </div>
         </div>
