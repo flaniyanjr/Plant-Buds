@@ -10,6 +10,7 @@ function UserPlantList() {
     const renderUserPlants= userPlants.map(plant => (
         <UserPlantItem
         key={plant.id}
+        id= {plant.id}
         name={plant.name}
         image={plant.image}
         nickname={plant.nickname}

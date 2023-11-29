@@ -20,6 +20,17 @@ function App() {
         setUserPlants(current => [...current, newPlant])
     }
 
+    function deletePlant(id) {
+        const newPlantList= allPlantItems.filter((plantObj) => {
+            return plantObj.id !== id
+        })
+        const newUserPlantList= userPlants.filter((plantObj) => {
+            return plantObj.id !== id
+        })
+        setAllPlantItems(newPlantList)
+        setUserPlants(newUserPlantList)
+    }
+
     
     const [allOwnersItems, setAllOwnersItems] = useState([])
     
@@ -41,7 +52,8 @@ function App() {
         setAllOwnersItems,
         userPlants,
         setUserPlants,
-        addOwner
+        addOwner,
+        deletePlant
     }
 
 

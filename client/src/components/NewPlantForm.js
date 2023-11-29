@@ -36,7 +36,7 @@ function NewPlantForm(){
         })
         .then((r) => r.json())
         .then((newPlant) => addPlant(newPlant))
-    e.target.reset()
+        e.target.reset()
     }
 
     return (
