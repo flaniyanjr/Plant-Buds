@@ -9,12 +9,12 @@ function NewPlantForm(){
     const initialState= {
         name: "",
         nickname: "",
-        picture: "",
+        image: "",
         water: "",
         size: "",
-        extra_care: "",
-        location: 2,
-        owner: 1,
+        extra_info: "",
+        location_id: 2,
+        owner_id: 1,
     }
 
     const [plantData, setPlantData]= useState(initialState)
@@ -44,19 +44,19 @@ function NewPlantForm(){
             <form id="new-plant-form" onSubmit= {handleSubmit}>
                 <div>
                     <label>Name:</label>
-                    <input type= "text" name= "name" onChange={handleChange} value= {name}/>
+                    <input type= "text" name= "name" onChange={handleChange} value= {plantData.name}/>
                 </div>
                 <div>
                     <label>Nickname:</label>
-                    <input type= "text" name= "nickname" onChange={handleChange} value={nickname}/>
+                    <input type= "text" name= "nickname" onChange={handleChange} value={plantData.nickname}/>
                 </div>
                 <div>
-                    <label>Picture:</label>
-                    <input type= "text" name= "image" onChange={handleChange} value={picture}/>
+                    <label>Image:</label>
+                    <input type= "text" name= "image" onChange={handleChange} value={plantData.image}/>
                 </div>
                 <div>
                     <label>Watering:</label>
-                    <input type= "text" name= "water" onChange={handleChange} value={water}/>
+                    <input type= "text" name= "water" onChange={handleChange} value={plantData.water}/>
                 </div>
                 <div>
                     <label>Size:</label>
@@ -71,15 +71,15 @@ function NewPlantForm(){
                 </div>
                 <div>
                     <label>Extra care info:</label>
-                    <input type= "text" name= "extaInfo" onChange={handleChange} value={extra_care}/>
+                    <input type= "text" name= "extra_info" onChange={handleChange} value={plantData.extra_info}/>
                 </div>
                 <div>
                     <label>Where is this plant located in your home:</label>
-                    <input type= "text" name= "location" onChange={handleChange} value= {location}/>
+                    <input type= "text" name= "location_id" onChange={handleChange} value= {plantData.location_id}/>
                 </div>
                 <div>
                     <label>What is your name:</label>
-                    <input type= "text" name= "owner" onChange={handleChange} value={owner}/>
+                    <input type= "text" name= "owner_id" onChange={handleChange} value={plantData.owner_id}/>
                 </div>
                 <button type= 'submit'> Submit </button>
             </form>
