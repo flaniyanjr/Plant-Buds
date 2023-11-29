@@ -36,6 +36,7 @@ function NewPlantForm(){
         })
         .then((r) => r.json())
         .then((newPlant) => addPlant(newPlant))
+    e.target.reset()
     }
 
     return (
@@ -44,19 +45,19 @@ function NewPlantForm(){
             <form id="new-plant-form" onSubmit= {handleSubmit}>
                 <div>
                     <label>Name:</label>
-                    <input type= "text" name= "name" onChange={handleChange} value= {name}/>
+                    <input type= "text" name= "name" onChange={handleChange} value= {plantData.name}/>
                 </div>
                 <div>
                     <label>Nickname:</label>
-                    <input type= "text" name= "nickname" onChange={handleChange} value={nickname}/>
+                    <input type= "text" name= "nickname" onChange={handleChange} value={plantData.nickname}/>
                 </div>
                 <div>
                     <label>Picture:</label>
-                    <input type= "text" name= "image" onChange={handleChange} value={picture}/>
+                    <input type= "text" name= "image" onChange={handleChange} value={plantData.picture}/>
                 </div>
                 <div>
                     <label>Watering:</label>
-                    <input type= "text" name= "water" onChange={handleChange} value={water}/>
+                    <input type= "text" name= "water" onChange={handleChange} value={plantData.water}/>
                 </div>
                 <div>
                     <label>Size:</label>
@@ -71,15 +72,15 @@ function NewPlantForm(){
                 </div>
                 <div>
                     <label>Extra care info:</label>
-                    <input type= "text" name= "extaInfo" onChange={handleChange} value={extra_care}/>
+                    <input type= "text" name= "extaInfo" onChange={handleChange} value={plantData.extra_care}/>
                 </div>
                 <div>
                     <label>Where is this plant located in your home:</label>
-                    <input type= "text" name= "location" onChange={handleChange} value= {location}/>
+                    <input type= "text" name= "location" onChange={handleChange} value= {plantData.location}/>
                 </div>
                 <div>
                     <label>What is your name:</label>
-                    <input type= "text" name= "owner" onChange={handleChange} value={owner}/>
+                    <input type= "text" name= "owner" onChange={handleChange} value={plantData.owner}/>
                 </div>
                 <button type= 'submit'> Submit </button>
             </form>
