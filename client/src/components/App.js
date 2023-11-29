@@ -26,13 +26,18 @@ function App() {
             .then((resp)=> resp.json())
             .then(allOwners => setAllOwnersItems(allOwners))
     }, []);
+
+    function addOwner(newOwner) {
+        setAllOwnersItems(current => [...current, newOwner])
+    }
     
     const context= {
         allPlantItems,
         setAllPlantItems,
         addPlant,
         allOwnersItems,
-        setAllOwnersItems
+        setAllOwnersItems,
+        addOwner
     }
 
 

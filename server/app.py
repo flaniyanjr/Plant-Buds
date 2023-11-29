@@ -64,6 +64,15 @@ class Owners(Resource):
     def get(self):
         owner_list = [own.to_dict(only= ('name',)) for own in Owner.query.all()]
         return make_response(owner_list,200)
+
+    def post(self):
+        params= request.json
+        owner = Owner(name= params['name'],)
+
+        db.session.add(owner)
+        db.session.commit()
+
+        return make_response(owner.to_dict(), 201)
     
 api.add_resource(Owners, '/users')
 
