@@ -25,7 +25,7 @@ function PlantLibrary(){
     // display
     return (
         <div>
-            <h2>Plant Library</h2>
+            <h1 className= 'title'>Plant Library</h1>
             <div className='container' >
                 {renderPlantItems}
             </div>

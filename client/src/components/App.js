@@ -14,9 +14,14 @@ function App() {
             .then(allPlants => setAllPlantItems(allPlants))
     }, []);
 
+    function addPlant(newPlant) {
+        setAllPlantItems(current => [...current, newPlant])
+    }
+
     const context= {
         allPlantItems,
-        setAllPlantItems
+        setAllPlantItems,
+        addPlant
     }
 
 
