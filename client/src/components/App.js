@@ -11,7 +11,7 @@ function App() {
     const [allPlantItems, setAllPlantItems] = useState([])
 
     useEffect(() => {
-        fetch("/plants")
+        fetch(databaseURL + "/plants")
             .then((resp) => resp.json())
             .then(setAllPlantItems)
     }, []);
