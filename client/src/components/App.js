@@ -11,7 +11,7 @@ function App() {
     const [allPlantItems, setAllPlantItems] = useState([])
 
     useEffect(() => {
-        fetch(databaseURL + "/plants")
+        fetch("/plants")
             .then((resp) => resp.json())
             .then(setAllPlantItems)
     }, []);
@@ -24,7 +24,6 @@ function App() {
     return (
         <div>
             <Header />
-            <NavBar />
             <Outlet context = {context}/>
             <Footer />
         </div>
