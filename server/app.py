@@ -60,6 +60,14 @@ class PlantById(Resource):
 api.add_resource(PlantById, '/plants/<int:id>')
 
 
+class Owners(Resource):
+    def get(self):
+        owner_list = [own.to_dict(only= ('name',)) for own in Owner.query.all()]
+        return make_response(owner_list,200)
+    
+api.add_resource(Owners, '/users')
+
+
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
 
