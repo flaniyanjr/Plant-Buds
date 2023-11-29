@@ -24,8 +24,8 @@ class Plants(Resource):
         params= request.json
         try:
             new_plant= Plant(name= params['name'], image= params['image'], nickname= params['nickname'], water= params['water'], extra_info= params['extra_info'], size= params['size'], owner_id= params['owner_id'], location_id= params['location_id'])
-        except ValueError as validaiton_error:
-            return make_response({'error' : str(validaiton_error)}, 422)
+        except ValueError as validation_error:
+            return make_response({'error' : str(validation_error)}, 422)
         except KeyError as key_error:
             return make_response({'error' : f'A {key_error} must be included'}, 422)
         db.session.add(new_plant)
