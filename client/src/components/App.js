@@ -20,10 +20,21 @@ function App() {
         setAllPlantItems(current => [...current, newPlant])
     }
 
+    
+    const [allOwnersItems, setAllOwnersItems] = useState([])
+    
+    useEffect(()=>{
+        fetch("/users")
+            .then((resp)=> resp.json())
+            .then(allOwners => setAllOwnersItems(allOwners))
+    }, []);
+    
     const context= {
         allPlantItems,
         setAllPlantItems,
-        addPlant
+        addPlant,
+        allOwnersItems,
+        setAllOwnersItems
     }
 
     return (
