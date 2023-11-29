@@ -9,6 +9,7 @@ const databaseURL = "http://localhost:5555"
 function App() {
 
     const [allPlantItems, setAllPlantItems] = useState([])
+    const [userPlants, setUserPlants]= useState([])
 
     useEffect(() => {
         fetch("/plants")
@@ -18,6 +19,7 @@ function App() {
 
     function addPlant(newPlant) {
         setAllPlantItems(current => [...current, newPlant])
+        setUserPlants(current => [...current, newPlant])
     }
 
     
@@ -28,13 +30,20 @@ function App() {
             .then((resp)=> resp.json())
             .then(allOwners => setAllOwnersItems(allOwners))
     }, []);
+
+    function addOwner(newOwner) {
+        setAllOwnersItems(current => [...current, newOwner])
+    }
     
     const context= {
         allPlantItems,
         setAllPlantItems,
         addPlant,
         allOwnersItems,
-        setAllOwnersItems
+        setAllOwnersItems,
+        userPlants,
+        setUserPlants,
+        addOwner
     }
 
     return (
