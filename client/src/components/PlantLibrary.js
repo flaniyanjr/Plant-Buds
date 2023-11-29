@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import PlantCard from "./PlantCard";
+import OwnerCard from "./OwnerCard";
 import { useOutletContext } from "react-router-dom"
 
 function PlantLibrary(){
 
     const {allPlantItems}= useOutletContext()
+    const {allOwnersItems}= useOutletContext()
 
     // render plant library items
     const renderPlantItems = allPlantItems.map((plant) => (
@@ -21,6 +23,12 @@ function PlantLibrary(){
         />
     ))
 
+    const renderOwnerItems = allOwnersItems.map((owner)=>(
+        <OwnerCard 
+        user={owner.name}
+        />
+    ))
+
 
     // display
     return (
@@ -29,6 +37,8 @@ function PlantLibrary(){
             <div className='container' >
                 {renderPlantItems}
             </div>
+            <div> {renderOwnerItems}</div>
+
         </div>
     )
 }
