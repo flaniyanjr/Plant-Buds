@@ -19,9 +19,45 @@ class Plants(Resource):
     def get(self):
         plant_list= [plant.to_dict() for plant in Plant.query.all()]
         return make_response(plant_list, 200)
+    
+    def post(self):
+        params= request.json
+        try:
+            new_plant= Plant(name= params['name'], image= params['image'], nickname= params['nickname'], water= params['water'], extra_info= params['extra_info'], size= params['size'], owner_id= params['owner_id'], location_id= params['location_id'])
+        except ValueError as validaiton_error:
+            return make_response({'error' : str(validaiton_error)}, 422)
+        except KeyError as key_error:
+            return make_response({'error' : f'A {key_error} must be included'}, 422)
+        db.session.add(new_plant)
+        db.session.commit()
+        return make_response(new_plant.to_dict(), 201)
 
 
 api.add_resource(Plants, '/plants')
+
+class PlantById(Resource):
+    def patch(self, id):
+        plant= Plant.query.get(id)
+        params= request.json
+        if not plant:
+            return make_response({'error' : "Plant not found"}, 404)
+        for attr in params:
+            try:
+                setattr(plant, attr, params[attr])
+            except ValueError as validation_error:
+                return make_response({'error' : str(validation_error)}, 422)
+        db.session.commit()
+        return make_response(plant.to_dict(), 200)
+
+    def delete(self, id):
+        plant= Plant.query.get(id)
+        if not plant:
+            return make_response({'error' : "Plant not found"}, 404)
+        db.session.delete(plant)
+        db.session.commit()
+        return make_response('', 204)
+
+api.add_resource(PlantById, '/plants/<int:id>')
 
 
 if __name__ == '__main__':

@@ -1,5 +1,11 @@
+import NavBar from './NavBar'
+
 function Header() {
-    return 
+    return(
+        <header>
+            <NavBar />
+        </header>
+    )
 }
 
 export default Header;

@@ -1,0 +1,17 @@
+.nav-link{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 120px;
+    height: 30px;
+    padding: 5px;
+    margin: 0 6px 6px;
+    background: green;
+    text-decoration: none;
+    text-align: center;
+    font-size: min(10vw, 15px) ;
+    color: white;
+}
+
+.active {
+    color: yellow;
+}
