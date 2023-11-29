@@ -1,20 +1,12 @@
-import PlantLibrary from "./PlantLibrary";
+import { Outlet, useOutletContext } from "react-router-dom";
 
 function Content() {
 
-    // plant library items
-    const [allPlantItems, setAllPlantItems] = useState([])
+    const context = useOutletContext();
 
-    // fetch plant library data
-    useEffect(() => {
-        fetch("http://localhost:5555/plants")
-            .then((resp) => resp.json())
-            .then((allPlantItems) => setAllPlantItems(allPlantItems))
-    }, []);
-    
     return (
-        <div>
-            <PlantLibrary allPlantItems={allPlantItems} />
+        <div className="layout">
+            <Outlet context={{...context}} />
         </div>
     )
 }

@@ -1,7 +1,11 @@
-import { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import PlantLibraryItem from "./PlantLibraryItem";
 
-function PlantLibrary( allPlantItems ){
+function PlantLibrary( ){
+
+    const {
+        allPlantItems
+    } = useOutletContext();
 
     // render plant library items
     const renderPlantItems = allPlantItems.map((item) => (
