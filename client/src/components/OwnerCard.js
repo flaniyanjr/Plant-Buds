@@ -4,7 +4,7 @@ function OwnerCard({id, name ,plants}) {
 
     
     return (
-        <div className="card">
+        <div className="owner-card">
             <h2>{name}</h2>
         </div>
     )

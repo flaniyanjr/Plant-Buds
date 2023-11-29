@@ -8,6 +8,8 @@ function PlantLibrary(){
     const {allPlantItems}= useOutletContext()
     const {allOwnersItems}= useOutletContext()
 
+    console.log(allOwnersItems)
+
     // render plant library items
     const renderPlantItems = allPlantItems.map((plant) => (
         <PlantCard 
@@ -25,7 +27,7 @@ function PlantLibrary(){
 
     const renderOwnerItems = allOwnersItems.map((owner)=>(
         <OwnerCard 
-        user={owner.name}
+        name={owner.name}
         />
     ))
 
