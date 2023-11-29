@@ -1,18 +1,18 @@
 import React from "react";
 
-function UserPlantItem({name, image, nickname, water, extraInfo, size, owner, location}) {
+function UserPlantItem({name, image, nickname, water, extraInfo, size, ownerName, location}) {
     return(
-        <div className="plant-card">
+        <div className="user_card">
             <div className="image-container">
-                <img src={image} alt={name} className= "plant-img"/>
+                <img src={image} alt={name} className= "plant-image"/>
             </div>
-            <div className="plant-info">
-                <h4 className="plant-name"> {name} ({nickname})</h4>
-                <p className= "card-text water-text"> Watering details: {water}</p>
-                <p className= "card-text extraInfo-text"> Additional plant details: {extraInfo}</p>
-                <p className= "card-text size-text"> Size of your plant: {size}</p>
-                <p className= "card-text owner-text"> Owner: {owner}</p>
-                <p className= "card-text location-text"> This plant lives in {owner}'s {location}'</p>
+            <div>
+                <h4> {name} ({nickname})</h4>
+                <p> Watering details: {water}</p>
+                <p> Additional plant details: {extraInfo}</p>
+                <p> Size of your plant: {size}</p>
+                <p> Owner: {ownerName}</p>
+                <p> This plant lives in {ownerName}'s {location}</p>
             </div>
         </div>
     ); 
