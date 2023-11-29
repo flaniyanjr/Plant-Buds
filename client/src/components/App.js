@@ -7,6 +7,7 @@ import Footer from "./Footer";
 function App() {
 
     const [allPlantItems, setAllPlantItems] = useState([])
+    const [userPlants, setUserPlants]= useState([])
 
     useEffect(() => {
         fetch("/plants")
@@ -16,6 +17,7 @@ function App() {
 
     function addPlant(newPlant) {
         setAllPlantItems(current => [...current, newPlant])
+        setUserPlants(current => [...current, newPlant])
     }
 
     
@@ -32,7 +34,9 @@ function App() {
         setAllPlantItems,
         addPlant,
         allOwnersItems,
-        setAllOwnersItems
+        setAllOwnersItems,
+        userPlants,
+        setUserPlants
     }
 
 

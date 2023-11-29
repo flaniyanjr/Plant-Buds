@@ -27,6 +27,7 @@ function PlantLibrary(){
 
     const renderOwnerItems = allOwnersItems.map((owner)=>(
         <OwnerCard 
+        key= {owner.id} 
         name={owner.name}
         />
     ))
