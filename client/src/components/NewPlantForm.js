@@ -118,7 +118,7 @@ function NewPlantForm() {
 
     return (                     
         <div className= "new-plant-form">
-            <h4>🌼🌿Add a plant to your collection🌱🌷</h4>
+            <h4>Add a plant to your collection</h4>
             <form id="new-plant-form" onSubmit= {handleSubmit}>
                 <div>
                     <label>Plant Name:</label>
