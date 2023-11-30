@@ -6,20 +6,10 @@ function NewUserForm(){
 
     const {addOwner}= useOutletContext()
 
-    const initialState= {
-        name: "",
-        plants: "",
-        locations: ""
-    }
-
-    const [ownerData, setOwnerData] = useState(initialState)
+    const [name, setName] = useState('')
 
     function handleChange(e) {
-        setOwnerData(current => {
-            return {
-                ...current, [e.target.name] : e.target.value
-            }
-        })
+        setName(e.target.value)
     }
 
     function handleSubmit(e) {
@@ -27,25 +17,26 @@ function NewUserForm(){
         fetch('/users', {
             method: "POST",
             headers: {"Content-Type": 'application/json'},
-            body: JSON.stringify({...ownerData})
+            body: JSON.stringify({name})
         })
         .then((r)=> r.json())
         .then((newOwner)=> addOwner(newOwner))
-    e.target.reset()
+        setName('')
     }
 
 
 return (
     <div className= "new-user-form">
-    <h4> Create an account: </h4>
-    <form id= "new-user-form" onSubmit= {handleSubmit}>
-        <div>
-            <label> Name: </label>
-            <input type= "text" name="name" onChange= {handleChange} value= {ownerData.name} />
-        </div>
-        <button type= "submit"> Create user </button>
-    </form>
-    </div> );
+        <h4> Create an account: </h4>
+        <form id= "new-user-form" onSubmit= {handleSubmit}>
+            <div>
+                <label> Name: </label>
+                <input type= "text" name= "name" onChange= {handleChange} value= {name} />
+            </div>
+            <button type= "submit"> Create user </button>
+        </form>
+    </div> 
+    )
 }
 
 export default NewUserForm;

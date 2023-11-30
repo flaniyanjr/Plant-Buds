@@ -1,11 +1,9 @@
-import { useState } from "react"
-
-function OwnerCard({id, name ,plants}) {
-
+function OwnerCard({id, name , onClick}) {
     
     return (
-        <div className="owner-card">
+        <div className="card">
             <h2>{name}</h2>
+            <button onClick={() => onClick(name)}>View user's plants</button>
         </div>
     )
 }

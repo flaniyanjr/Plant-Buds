@@ -5,11 +5,23 @@ import OwnerCard from "./OwnerCard";
 
 function PlantLibrary(){
 
-    const {allPlantItems}= useOutletContext()
-    const {allOwnersItems}= useOutletContext()
+    const {allPlantItems, allOwnersItems}= useOutletContext();
+    // console.log(allOwnersItems)
+    const [selectedOwner, setSelectedOwner] = useState(null);
+
+    const handleOwnerClick = (ownerId) => {
+        // console.log(ownerId)
+        setSelectedOwner(ownerId);
+    };
+
+    const filteredPlantItems = allPlantItems.filter((plant) => {
+        // console.log('Plant Owner ID:', plant.owner.name);
+            return selectedOwner === null || plant.owner.name === selectedOwner;
+        }
+    );
 
     // render plant library items
-    const renderPlantItems = allPlantItems.map((plant) => (
+    const renderPlantItems = filteredPlantItems.map((plant) => (
         <PlantCard 
         key={plant.id}
         name={plant.name}
@@ -23,19 +35,14 @@ function PlantLibrary(){
         />
     ))
     
-    // allPlantItems.forEach(element => {
-    //     console.log(element.id)
-    // });
-
     const renderOwnerItems = allOwnersItems.map((owner)=>(
         <OwnerCard 
-        key= {owner.id} 
+        key= {owner.id}
         name={owner.name}
+        onClick= {handleOwnerClick}
         />
-    ))
+    ));
 
-
-    // display
     return (
         <div>
             <h1 className= 'title'>Plant Library</h1>

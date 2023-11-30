@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Switch, Route, Outlet } from "react-router-dom";
 import Header from "./Header";
-import NavBar from "./NavBar";
 import Footer from "./Footer";
 
 function App() {
@@ -30,6 +29,37 @@ function App() {
         setUserPlants(current => [...current, newPlant])
     }
 
+    function deletePlant(id) {
+        const newPlantList= allPlantItems.filter((plantObj) => {
+            return plantObj.id !== id
+        })
+        const newUserPlantList= userPlants.filter((plantObj) => {
+            return plantObj.id !== id
+        })
+        setAllPlantItems(newPlantList)
+        setUserPlants(newUserPlantList)
+    }
+
+    function updatePlant(newPlant) {
+        const newPlantList= allPlantItems.map(plantObj => {
+            if (plantObj.id === newPlant.id) {
+                return newPlant
+            } else {
+                return plantObj
+            }
+        })
+
+        const newUserPlantList = userPlants.map(plantObj => {
+            if (plantObj.id === newPlant.id) {
+                return newPlant
+            } else {
+                return plantObj
+            }
+        })
+        setAllPlantItems(newPlantList)
+        setUserPlants(newUserPlantList)
+    }
+
     function addOwner(newOwner) {
         setAllOwnersItems(current => [...current, newOwner])
     }
@@ -42,18 +72,17 @@ function App() {
         allPlantItems,
         setAllPlantItems,
         addPlant,
+        deletePlant,
+        updatePlant,
         allOwnersItems,
         setAllOwnersItems,
+        addOwner,
         userPlants,
         setUserPlants,
-        addOwner,
         allLocationItems,
         setAllLocationItems,
         addLocation
     }
-
-    // console.log(allLocationItems)
-    // console.log(allPlantItems)
 
     return (
         <div>

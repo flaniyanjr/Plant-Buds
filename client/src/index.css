@@ -46,3 +46,39 @@
 .title {
   text-align: center;
 }
+
+.form-submit {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 10px 15px;
+  position: relative;
+  background-color: lightgreen;
+}
+
+button.join-now {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  padding: 10px 15px;
+  position: relative;
+  background-color: #f1807e;
+  isolation: isolate;
+}
+
+button.join-now::before {
+  content: "";
+  position: absolute;
+  background-color: #f70d1a;
+  top: 0;
+  left: 100%;
+  right: 0;
+  bottom: 0;
+  transition: left 650ms ease-out;
+
+  z-index: -1;
+}
+
+button.join-now:hover::before {
+  left: 0;
+}
