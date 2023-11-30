@@ -1,24 +1,4 @@
-.nav-link{
-    display: inline-block;
-    box-sizing: border-box;
-    width: 120px;
-    height: 30px;
-    padding: 5px;
-    margin: 0 6px 6px;
-    background: green;
-    text-decoration: none;
-    text-align: center;
-    font-size: min(10vw, 15px) ;
-    color: white;
-}
-
-.active {
-    color: yellow;
-}
-
-
-
-.new-plant-form {
+/* .new-plant-form {
     font-family: 'times new roman';
     color: blue;
     text-shadow: 0 0 5px yellow;
@@ -53,4 +33,4 @@
 
 .footer {
     background-color: blue;
-}
+} */

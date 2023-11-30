@@ -1,10 +1,13 @@
+import banner from "../img/banner.jpg"
 import NavBar from './NavBar'
+import header from "../styling/header.css"
 
 function Header() {
     return(
-        <header>
+        <div id="header">
             <NavBar />
-        </header>
+            <img id="header-img" src={banner} alt="plant buds banner"/>
+        </div>
     )
 }
 

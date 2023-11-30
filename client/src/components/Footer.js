@@ -1,7 +1,9 @@
+import footer from "../styling/footer.css"
+
 function Footer() {
     return(
         <div className= "footer" >
-            Thank you
+            Designed by: 
         </div>
     )
 }
