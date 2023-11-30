@@ -1,6 +1,7 @@
 import React from "react";
 import { useOutletContext } from "react-router-dom" 
 import { useEffect, useState } from "react";
+import homepage from "../styling/homepage.css"
 
 function NewUserForm(){
 

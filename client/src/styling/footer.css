@@ -4,11 +4,10 @@
 }
   
 .footer {
-    background-color: #1b2d28;
+    background: #03624f;
     color: white;
     text-align: center;
     font-size: 55%;
     font-style: italic;
-    padding: 20px 0;
-    margin-top: 100vh;
+    padding: 40px;
 }

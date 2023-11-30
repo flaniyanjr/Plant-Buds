@@ -2,18 +2,20 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: rgba(255, 253, 241, 0.404)
 }
 
 #header-img {
     width: 100%;
     max-height: 250px;
     object-fit: cover;
+    opacity: 90%;
 }
 
 .navbar {
     display: flex;
     justify-content: space-evenly;
-    background: #1b2d28;
+    background: #03624f;
     padding: 5px;
   }
 
@@ -21,17 +23,19 @@
     display: inline-block;
     text-decoration: none;
     text-align: center;
+    font-family: "Marcellus";
     font-weight: bold;
     font-size: min(10vw, 17px);
+    background: #03624f;
     color: white;
-    padding: 5px 13px;
+    padding: 12px 25px;
     border-radius: 5px;
 }
 
 .nav-link:hover {
-    background-color: #48776a;
+    background-color: #053f2e;
 }
 
 .active {
-    background-color: #a09475;
+    background-color: #053f2e;
 }
