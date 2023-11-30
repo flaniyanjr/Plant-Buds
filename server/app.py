@@ -62,7 +62,7 @@ api.add_resource(PlantById, '/plants/<int:id>')
 
 class Owners(Resource):
     def get(self):
-        owner_list = [own.to_dict(only= ('name', "id")) for own in Owner.query.all()]
+        owner_list = [own.to_dict(only= ('name', 'id', 'plants.id')) for own in Owner.query.all()]
         return make_response(owner_list,200)
 
     def post(self):
@@ -76,7 +76,9 @@ class Owners(Resource):
         db.session.add(owner)
         db.session.commit()
 
-        return make_response(owner.to_dict(), 201)
+        response_data = owner.to_dict(only=('id', 'name', 'plants'))
+
+        return make_response(response_data, 201)
     
 api.add_resource(Owners, '/users')
 
