@@ -49,7 +49,7 @@ function PlantLibrary(){
             <div className='container' >
                 {renderPlantItems}
             </div>
-            <div> {renderOwnerItems}</div>
+            <div className='container'> {renderOwnerItems}</div>
 
         </div>
     )
