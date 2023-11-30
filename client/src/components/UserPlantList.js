@@ -10,6 +10,7 @@ function UserPlantList() {
     const renderUserPlants= userPlants.map(plant => (
         <UserPlantItem
         key={plant.id}
+        id= {plant.id}
         name={plant.name}
         image={plant.image}
         nickname={plant.nickname}
@@ -23,7 +24,7 @@ function UserPlantList() {
 
     return (
         <div className= ".container">
-            <h1>Your Plants</h1>
+            <h1 className= 'title'>Your Plants</h1>
             <NewPlantForm />
             <div>{renderUserPlants}</div>
         </div>
