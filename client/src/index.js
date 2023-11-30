@@ -1,6 +1,5 @@
 import React from "react";
 import App from "./components/App";
-import "./index.css";
 import ReactDOM from "react-dom/client";
 import PlantLibrary from "./components/PlantLibrary";
 import UserPlantList from "./components/UserPlantList"
@@ -15,7 +14,7 @@ const router = createBrowserRouter ([
       element: <App/>,
       children: [
         {
-          path: "/home",
+          path: "/",
           element: <Homepage />,
         },
         {

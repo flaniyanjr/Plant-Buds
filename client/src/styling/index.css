@@ -10,23 +10,37 @@
   width: 200px;
   min-height: 200px;
   border: 5px solid;
-  border-color: rgb(180, 228, 136) ;
+  border-color: #668a5a;
   text-align: center;
   padding: 10px;
   margin: 15px;
   border-radius: 5px;
   font-family: 'Fredericka the Great';
-  color: rgb(206, 111, 87);
+  color: #b7705c;
 }
 
 .user_card {
-  width: 300px;
+  /* width: 300px;
   min-height: 200px;
   border: 5px solid;
   text-align: center;
   padding: 10px;
   margin: 15px;
+  border-radius: 5px; */
+  width: 200px;
+  min-height: 200px;
+  border: 5px solid;
+  border-color: #668a5a;
+  text-align: center;
+  padding: 10px;
+  margin: 15px;
   border-radius: 5px;
+  font-family: 'Marcellus';
+  color: #b7705c;
+}
+
+.user_card h4{
+  font-family: 'Fredericka the Great';
 }
 
 .plant-image {
@@ -42,19 +56,21 @@
   flex-direction: column;
   align-items: center;
   border: 2px dotted;
-  border-color:rgb(180, 228, 136) ;
+  border-color: #136f63 ;
   max-width: 15%;
-  font-family: 'Bungee Shade' ;
+  font-family: 'Marcellus' ;
+  font-weight: bolder;
   text-align: center;
   padding: 10px;
   margin: 15px;
   border-radius: 5px;
+  color: #136f63;
 }
 
 .owner-card button{
-  background-color: rgb(180, 228, 136);
-  color:rgb(0, 0, 0);
-  font-family: 'Podkova';
+  background-color: #668a5a;
+  color: #eece96;
+  font-family: 'Marcellus';
   width: 7rem;
   height: 3.2rem;
   font-size: 1rem;
@@ -63,46 +79,9 @@
 }
 
 .owner-card button:hover {
-  background-color: #f70d1a;
+  background-color: #b7705c;
   cursor: pointer; 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -116,6 +95,16 @@
   justify-content: center;
   /* flex-direction: row; */
   align-items: flex-start;
+}
+
+.title {
+  font-family: 'Fredericka the Great';
+  padding-bottom: 16px;
+  padding-top: 15px ;
+  font-size: 3rem;
+  color:#668a5a;
+  text-decoration: underline #136f63 dotted;
+  
 }
 
 .title {

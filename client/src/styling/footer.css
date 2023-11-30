@@ -1,0 +1,14 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+}
+  
+.footer {
+    background-color: #668a5a;
+    color: white;
+    text-align: center;
+    font-size: 55%;
+    font-style: italic;
+    padding: 20px 0;
+    margin-top: 100vh;
+}

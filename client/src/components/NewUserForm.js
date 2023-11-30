@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 
 function NewUserForm(){
 
-    const {addOwner}= useOutletContext()
+    const {addOwner, createdOwner}= useOutletContext()
 
     const [name, setName] = useState('')
+    const [userCreated, setUserCreated] = useState(false)
 
     function handleChange(e) {
         setName(e.target.value)
@@ -22,19 +23,29 @@ function NewUserForm(){
         .then((r)=> r.json())
         .then((newOwner)=> addOwner(newOwner))
         setName('')
+        setUserCreated(current => !current)
     }
 
 
 return (
     <div className= "new-user-form">
-        <h4> Create an account: </h4>
-        <form id= "new-user-form" onSubmit= {handleSubmit}>
-            <div>
-                <label> Name: </label>
-                <input type= "text" name= "name" onChange= {handleChange} value= {name} />
-            </div>
-            <button type= "submit"> Create user </button>
-        </form>
+        {userCreated ? (
+            <>
+                <h4> Welcome {createdOwner.name}</h4>
+            </>
+        ) : (
+            <>
+                <h4> Create an account: </h4>
+                <form id= "new-user-form" onSubmit= {handleSubmit}>
+                    <div>
+                        <label> Name: </label>
+                        <input type= "text" name= "name" onChange= {handleChange} value= {name} />
+                    </div>
+                    <button type= "submit"> Create user </button>
+                </form>
+            </>
+        )}
+        
     </div> 
     )
 }

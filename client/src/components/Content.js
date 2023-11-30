@@ -1,4 +1,5 @@
 import { Outlet, useOutletContext } from "react-router-dom";
+import footer from "../styling/footer.css"
 
 function Content() {
 
