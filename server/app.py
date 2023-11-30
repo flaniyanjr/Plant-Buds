@@ -67,8 +67,12 @@ class Owners(Resource):
 
     def post(self):
         params= request.json
-        owner = Owner(name= params['name'],)
-
+        try:
+            owner = Owner(name= params['name'])
+        except ValueError as validation_error:
+            return make_response({'error' : str(validation_error)}, 422)
+        except KeyError as key_error:
+            return make_response({'error' : str(key_error)})
         db.session.add(owner)
         db.session.commit()
 
