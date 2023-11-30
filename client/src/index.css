@@ -6,13 +6,17 @@
 }
 
 .card {
+  order: 2;
   width: 200px;
   min-height: 200px;
   border: 5px solid;
+  border-color: rgb(180, 228, 136) ;
   text-align: center;
   padding: 10px;
   margin: 15px;
   border-radius: 5px;
+  font-family: 'Fredericka the Great';
+  color: rgb(206, 111, 87);
 }
 
 .user_card {
@@ -31,15 +35,86 @@
   margin: 0 auto;
 }
 
+.owner-card{
+  order: 1;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px dotted;
+  border-color:rgb(180, 228, 136) ;
+  max-width: 15%;
+  font-family: 'Bungee Shade' ;
+  text-align: center;
+  padding: 10px;
+  margin: 15px;
+  border-radius: 5px;
+}
+
+.owner-card button{
+  background-color: rgb(180, 228, 136);
+  color:rgb(0, 0, 0);
+  font-family: 'Podkova';
+  width: 7rem;
+  height: 3.2rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+  border-radius: 10px;
+}
+
+.owner-card button:hover {
+  background-color: #f70d1a;
+  cursor: pointer; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .container {
 
   display: flex;
-  flex-basis: 10em ;
+  /* flex-basis: 10em ; */
   flex-flow: row wrap;
   max-width: 100%;
   min-width: 50%;
   justify-content: center;
-  flex-direction: row;
+  /* flex-direction: row; */
   align-items: flex-start;
 }
 
