@@ -24,7 +24,7 @@ function UserPlantList() {
 
     return (
         <div className= ".container">
-            <h1>Your Plants</h1>
+            <h1 className= 'title'>Your Plants</h1>
             <NewPlantForm />
             <div>{renderUserPlants}</div>
         </div>

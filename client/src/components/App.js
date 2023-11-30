@@ -31,6 +31,26 @@ function App() {
         setUserPlants(newUserPlantList)
     }
 
+    function updatePlant(newPlant) {
+        const newPlantList= allPlantItems.map(plantObj => {
+            if (plantObj.id === newPlant.id) {
+                return newPlant
+            } else {
+                return plantObj
+            }
+        })
+
+        const newUserPlantList= userPlants.map(plantObj => {
+            if (plantObj.id === newPlant.id) {
+                return newPlant
+            } else {
+                return plantObj
+            }
+        })
+        setAllPlantItems(newPlantList)
+        setUserPlants(newUserPlantList)
+    }
+
     
     const [allOwnersItems, setAllOwnersItems] = useState([])
     
@@ -53,7 +73,8 @@ function App() {
         userPlants,
         setUserPlants,
         addOwner,
-        deletePlant
+        deletePlant,
+        updatePlant
     }
 
 

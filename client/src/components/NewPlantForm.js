@@ -44,7 +44,7 @@ function NewPlantForm(){
             <h4>🌼🌿Add a plant to your collection🌱🌷</h4>
             <form id="new-plant-form" onSubmit= {handleSubmit}>
                 <div>
-                    <label>Name:</label>
+                    <label>Plant Type:</label>
                     <input type= "text" name= "name" onChange={handleChange} value= {plantData.name}/>
                 </div>
                 <div>
