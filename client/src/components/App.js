@@ -9,6 +9,7 @@ function App() {
     const [allOwnersItems, setAllOwnersItems] = useState([])
     const [allLocationItems, setAllLocationItems] = useState([])
     const [userPlants, setUserPlants]= useState([])
+    const [createdOwner, setCreatedOwner]= useState('')
     
     useEffect(() => {
         fetch("/plants")
@@ -62,8 +63,9 @@ function App() {
 
     function addOwner(newOwner) {
         setAllOwnersItems(current => [...current, newOwner])
+        setCreatedOwner(newOwner)
     }
-    
+
     function addLocation(newLocation){
         setAllLocationItems(locations => [...locations, newLocation])
     }
@@ -81,7 +83,8 @@ function App() {
         setUserPlants,
         allLocationItems,
         setAllLocationItems,
-        addLocation
+        addLocation,
+        createdOwner
     }
 
     return (
