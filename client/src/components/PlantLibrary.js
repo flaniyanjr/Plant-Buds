@@ -5,13 +5,26 @@ import { useOutletContext } from "react-router-dom"
 
 function PlantLibrary(){
 
-    const {allPlantItems}= useOutletContext()
-    const {allOwnersItems}= useOutletContext()
+    const {allPlantItems, allOwnersItems}= useOutletContext()
+    // console.log(allOwnersItems)
+   const [selectedOwner, setSelectedOwner] = useState(null);
 
-    console.log(allOwnersItems)
+   const handleOwnerClick = (ownerId) => {
+    // console.log(ownerId)
+    setSelectedOwner(ownerId);
+   };
+
+   const filteredPlantItems = allPlantItems.filter(
+    (plant) => {
+        // console.log('Plant Owner ID:', plant.owner.name);
+        return selectedOwner === null || plant.owner.name === selectedOwner;
+    }
+   );
+
+    
 
     // render plant library items
-    const renderPlantItems = allPlantItems.map((plant) => (
+    const renderPlantItems = filteredPlantItems.map((plant) => (
         <PlantCard 
         key={plant.id}
         name={plant.name}
@@ -27,9 +40,11 @@ function PlantLibrary(){
 
     const renderOwnerItems = allOwnersItems.map((owner)=>(
         <OwnerCard 
+        key= {owner.id}
         name={owner.name}
+        onClick= {handleOwnerClick}
         />
-    ))
+    ));
 
 
     // display
