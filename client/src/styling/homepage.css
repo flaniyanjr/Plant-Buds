@@ -1,0 +1,15 @@
+#home-container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(230, 228, 212, 0.404)
+}
+
+.home-info {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 10%;
+    height: 300px;
+}
+.home-info img {
+    width: 300px;
+}
