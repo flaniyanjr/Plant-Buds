@@ -1,16 +1,12 @@
-import PlantLibrary from "./PlantLibrary";
-import HomePage from "./Homepage";
-import { useEffect, useState } from "react"
+import { Outlet, useOutletContext } from "react-router-dom";
 
 function Content() {
 
-    // plant library items
+    const context = useOutletContext();
 
-    // fetch plant library data
-
-    
     return (
-        <div>
+        <div className="layout">
+            <Outlet context={{...context}} />
         </div>
     )
 }

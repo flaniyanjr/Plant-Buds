@@ -82,6 +82,43 @@ class Owners(Resource):
     
 api.add_resource(Owners, '/users')
 
+class Locations(Resource):
+    def get(self):
+        location_list = [loc.to_dict(only=("id", "room",)) for loc in Location.query.all()]
+        return make_response(location_list, 200)
+    
+    def post(self):
+        params = request.json
+        location = Location(room = params['room'],)
+        db.session.add(location)
+        db.session.commit()
+
+        return make_response(location.to_dict(), 201)
+
+api.add_resource(Locations, "/locations")
+
+class LocationById(Resource):
+    def get(self, id): 
+        loc = Location.query.get(id)
+        if not loc:
+            return make_response({"error": "Location not found"}, 404)
+        return make_response(loc.to_dict(), 200)
+    
+    def patch(self, id):
+        loc = Location.query.get(id)
+        params= request.json
+        if not loc:
+            return make_response({'error' : "Location not found"}, 404)
+        for attr in params:
+            try:
+                setattr(loc, attr, params[attr])
+            except ValueError as validation_error:
+                return make_response({'error' : str(validation_error)}, 422)
+        db.session.commit()
+        return make_response(loc.to_dict(), 200)
+    
+api.add_resource(LocationById, '/locations/<int:id>')
+
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)

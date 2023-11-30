@@ -1,27 +1,24 @@
 import { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom"
 import PlantCard from "./PlantCard";
 import OwnerCard from "./OwnerCard";
-import { useOutletContext } from "react-router-dom"
 
 function PlantLibrary(){
 
-    const {allPlantItems, allOwnersItems}= useOutletContext()
+    const {allPlantItems, allOwnersItems}= useOutletContext();
     // console.log(allOwnersItems)
-   const [selectedOwner, setSelectedOwner] = useState(null);
+    const [selectedOwner, setSelectedOwner] = useState(null);
 
-   const handleOwnerClick = (ownerId) => {
-    // console.log(ownerId)
-    setSelectedOwner(ownerId);
-   };
+    const handleOwnerClick = (ownerId) => {
+        // console.log(ownerId)
+        setSelectedOwner(ownerId);
+    };
 
-   const filteredPlantItems = allPlantItems.filter(
-    (plant) => {
+    const filteredPlantItems = allPlantItems.filter((plant) => {
         // console.log('Plant Owner ID:', plant.owner.name);
-        return selectedOwner === null || plant.owner.name === selectedOwner;
-    }
-   );
-
-    
+            return selectedOwner === null || plant.owner.name === selectedOwner;
+        }
+    );
 
     // render plant library items
     const renderPlantItems = filteredPlantItems.map((plant) => (
@@ -37,7 +34,7 @@ function PlantLibrary(){
         location={plant.location.room}
         />
     ))
-
+    
     const renderOwnerItems = allOwnersItems.map((owner)=>(
         <OwnerCard 
         key= {owner.id}
@@ -46,8 +43,6 @@ function PlantLibrary(){
         />
     ));
 
-
-    // display
     return (
         <div>
             <h1 className= 'title'>Plant Library</h1>

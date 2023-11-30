@@ -1,7 +1,4 @@
-import { useState } from "react"
-
 function OwnerCard({id, name , onClick}) {
-
     
     return (
         <div className="card">
