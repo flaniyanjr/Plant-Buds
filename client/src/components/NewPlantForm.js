@@ -17,7 +17,8 @@ function NewPlantForm() {
         addLocation,
         allOwnersItems,
         allLocationItems, 
-        setAllLocationItems
+        setAllLocationItems,
+        createdOwner
     } = useOutletContext()
 
     const [plantData, setPlantData]= useState(initialPlantState)
@@ -83,7 +84,11 @@ function NewPlantForm() {
     }
 
     function addPlantWithLocation(locationId) {
-        let ownerId = 1;
+        let ownerId= 1
+        if (createdOwner.id > 1) {
+            ownerId= createdOwner.id
+        }
+
 
         fetch('/plants', {
             method: "POST",
@@ -113,7 +118,7 @@ function NewPlantForm() {
 
     return (                     
         <div className= "new-plant-form">
-            <h4>🌼🌿Add a plant to your collection🌱🌷</h4>
+            <h4>Add a plant to your collection</h4>
             <form id="new-plant-form" onSubmit= {handleSubmit}>
                 <div>
                     <label>Plant Name:</label>
