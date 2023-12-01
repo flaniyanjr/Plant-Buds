@@ -53,4 +53,42 @@
     to {
       transform: rotate(-5deg); 
     }
-  }
+}
+
+.new-user-form h4,
+#new-user-form,
+#new-user-form label,
+#new-user-form input,
+#new-user-form button,
+#new-user-form div
+{ background-color: white; }
+
+.new-user-form h4 {
+    padding: 20px 0 8px 0;
+}
+
+#new-user-form label {
+    padding-right: 5px;
+}
+#new-user-form input {
+    padding: 5px;
+    margin-bottom: 10px;
+    min-width: 150px;
+}
+
+#new-user-form input:focus {
+    background-color: #eece96a1;
+}
+
+#new-user-form button {
+    background-color: #136f63;
+    color: #eece96;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-weight: bold;
+
+}
+
+#new-user-form button:hover {
+    background-color: #b7705c;
+}

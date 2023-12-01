@@ -42,7 +42,7 @@ return (
                         <label> Name: </label>
                         <input type= "text" name= "name" onChange= {handleChange} value= {name} />
                     </div>
-                    <button type= "submit"> Create user </button>
+                    <button type= "submit"> Create User </button>
                 </form>
             </>
         )}
