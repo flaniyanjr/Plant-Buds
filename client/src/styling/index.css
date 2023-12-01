@@ -2,21 +2,44 @@
   --bg: #282c34;
   --header: #fff;
   --link: #61dafb;
-  --text: hsla(0, 0%, 100%, 0.88);
 }
 
 .card {
   order: 2;
-  width: 200px;
-  min-height: 200px;
+  width: 300px;
+  min-height: 300px;
   border: 5px solid;
   border-color: #668a5a;
   text-align: center;
-  padding: 10px;
+  padding-top: 5px;
   margin: 15px;
   border-radius: 5px;
   font-family: 'Fredericka the Great';
   color: #b7705c;
+  overflow: hidden;
+  background-color: white;
+}
+
+.card h2 {
+  padding: 0 2px;
+}
+
+.card p {
+  font-size: smaller;
+}
+
+#card-p {
+  padding: 5px 0 10px 0;
+}
+
+.plant-image {
+  min-width: 180px;
+  max-height: 250px;
+  display: block;
+  padding: 10px 0 5px 0;
+  margin: auto;
+  text-align: center;
+  object-fit: contain;
 }
 
 .user_card {
@@ -38,18 +61,12 @@
   font-family: 'Marcellus';
   color: #b7705c;
   display: inline-block;
+  background-color: white;
 }
 
 .user_card h4{
   font-family: 'Fredericka the Great';
 }
-
-.plant-image {
-  width: 180px;
-  display: block;
-  margin: 0 auto;
-}
-
 .owner-card{
   order: 1;
   justify-content: center;
@@ -66,6 +83,7 @@
   margin: 15px;
   border-radius: 5px;
   color: #136f63;
+  background-color: white;
 }
 
 .owner-card button{
@@ -83,8 +101,6 @@
   background-color: #b7705c;
   cursor: pointer; 
 }
-
-
 
 .container {
 
