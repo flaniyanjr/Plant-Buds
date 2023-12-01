@@ -42,6 +42,10 @@
   object-fit: contain;
 }
 
+.card p{
+  font-family: "Marcellus";
+}
+
 .user_card {
   /* width: 300px;
   min-height: 200px;
@@ -67,6 +71,9 @@
 .user_card h4{
   font-family: 'Fredericka the Great';
 }
+
+
+
 .owner-card{
   order: 1;
   justify-content: center;
@@ -114,13 +121,24 @@
   align-items: flex-start;
 }
 
+/* .form-container{
+  display: flex;
+  flex-basis: 10em ;
+  flex-flow: row wrap;
+  max-width: 100%;
+  min-width: 50%;
+  justify-content: center;
+  flex-direction: row;
+  align-items: flex-start;
+} */
+
 .title {
   font-family: 'Fredericka the Great';
-  padding-bottom: 16px;
+  padding-bottom: 25px;
   padding-top: 15px ;
   font-size: 3rem;
   color:#668a5a;
-  text-decoration: underline #136f63 dotted;
+  /* text-decoration: underline #136f63 dotted; */
   
 }
 
