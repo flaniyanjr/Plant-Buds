@@ -3,7 +3,7 @@ import footer from "../styling/footer.css"
 function Footer() {
     return(
         <div className= "footer" >
-            Designed by: 
+            Designed by: Hannah Schwaeble, Ling Zhou Chen, Felix Laniyan 
         </div>
     )
 }
