@@ -6,7 +6,7 @@
 .home-info {
     display: flex;
     flex-direction: row;
-    padding: 10px 10%;
+    padding: 10px 15%;
     font-family: "Marcellus";
     max-width: 100%;
 }
@@ -20,18 +20,29 @@
     animation: rock 0.5s ease-in-out infinite alternate;
 }
 
-.home-info p {
-    max-width: fit-content;
+.home-info h2 {
+    padding: 10% 0 0 15%;
+    font-family: "Fredericka the Great";
+    font-size: 2em;
+    color: #383832;
+}
+
+.home-p {
+    /* background-color: rgba(0, 0, 0, 0.315); */
     margin: auto 40px;
+    padding: 2px 5px 5px 0;
+    background: linear-gradient(to right, white, #383832);
+    /* background: radial-gradient(circle, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.1)); */
+    clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
+}
+
+.home-p p {
+    max-width: fit-content;
+    font-family: "Marcellus";
     text-align: center;
     padding: 80px 40px;
     background: white;
-
-    /* border: 10px solid #EECE96; */
-    /* border: 10px double #136f63;
-    border: 10px double #b7705c;
-    clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%); */
-    
+     
     border: 10px solid transparent; 
     border-image: linear-gradient(45deg,  #b7705c, #136f63) 1;
     border-image-slice: 1; 
@@ -42,4 +53,42 @@
     to {
       transform: rotate(-5deg); 
     }
-  }
+}
+
+.new-user-form h4,
+#new-user-form,
+#new-user-form label,
+#new-user-form input,
+#new-user-form button,
+#new-user-form div
+{ background-color: white; }
+
+.new-user-form h4 {
+    padding: 20px 0 8px 0;
+}
+
+#new-user-form label {
+    padding-right: 5px;
+}
+#new-user-form input {
+    padding: 5px;
+    margin-bottom: 10px;
+    min-width: 150px;
+}
+
+#new-user-form input:focus {
+    background-color: #eece96a1;
+}
+
+#new-user-form button {
+    background-color: #136f63;
+    color: #eece96;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-weight: bold;
+
+}
+
+#new-user-form button:hover {
+    background-color: #b7705c;
+}
